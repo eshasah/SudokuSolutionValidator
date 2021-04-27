@@ -35,6 +35,15 @@ void *check_rows(void *params);
 // function for the check_cols function.
 void *check_cols(void *params);
 
+//Checks each row/column if it contains all digits 1-9.
+int check_line(int input[9]);
+
+//Checks each 3*3 grid if it contains all digits 1-9.
+int check_grid(int sudoku[9][9]);
+
+// Checks if the sudoku solution is valid or not without using the PThreads function.
+int sudoku_checker(int sudoku[9][9]);
+
 
 /***************
  * ENTRY POINT *
@@ -142,6 +151,24 @@ int main(void)
     duration<double> elapsed_time_threads = duration_cast<duration<double>>(end_time_threads - start_time_threads);
 
     cout << endl << "Total time to validate sudoku solution using 27 threads: " << elapsed_time_threads.count() << " s" << endl;
+
+    // Starting time for execution with 27 threads
+    steady_clock::time_point start_time = steady_clock::now();
+
+    int res = sudoku_checker(sudoku);
+    if(res == 0)
+    {
+        cout << "Sudoku solution is valid" << endl;
+    }
+    else
+    {
+        cout << "Sudoku solution is invalid" << endl;
+    }
+
+    steady_clock::time_point end_time = steady_clock::now();
+    duration<double> elapsed_time = duration_cast<duration<double>>(end_time - start_time);
+
+    cout << endl << "Total time to validate sudoku solution without using multithreading: " << elapsed_time.count() << " s" << endl;
 
 }
 
