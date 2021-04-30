@@ -45,8 +45,11 @@ int main(void)
 const size_t N= 9;
     //====== The Sudoku puzzle to be validated =======
     int sudoku[9][9] ={};
- 
-     std::ifstream file("sudoku_input.txt");
+   string filename;
+   cout<< "Please enter the input file name which contains the sudoku puzzle to be validated : ";
+   cin >> filename;
+   
+     std::ifstream file(filename);
      std::string line;
 
      
@@ -132,9 +135,9 @@ const size_t N= 9;
 
             // Compute and return the elapsed time in milliseconds.
             steady_clock::time_point end_time_threads = steady_clock::now();
-            duration<double> elapsed_time_threads = duration_cast<duration<double>>(end_time_threads - start_time_threads);
+            auto elapsed_time_threads = std::chrono::duration_cast<std::chrono::milliseconds>(end_time_threads - start_time_threads);
 
-            cout << endl << "Total time to validate sudoku solution using 27 threads: " << elapsed_time_threads.count() << " seconds" << endl;
+            cout << endl << "Total time to validate sudoku solution using 27 threads: " << elapsed_time_threads.count() << " milliseconds" << endl;
             return 1;
         }
     }
