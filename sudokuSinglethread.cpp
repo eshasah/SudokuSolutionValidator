@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <iostream>
 #include <chrono>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 using namespace std::chrono;
@@ -14,11 +17,13 @@ int main(void)
 
 const size_t N= 9;
     //====== The Sudoku puzzle to be validated =======
-    int sudoku[9][9] ={};
-
-     std::ifstream file("sudoku_input.txt");
+     int sudoku[9][9] ={};
+     string filename;
+     cout<< "Please enter the input file name which contains the sudoku puzzle to be validated : ";
+     cin >> filename;
+   
+     std::ifstream file(filename);
      std::string line;
-
      
      for(size_t i=0; i<N && std::getline(file,line); i++)
      {
@@ -49,9 +54,9 @@ const size_t N= 9;
 
     // Compute and return the elapsed time in milliseconds.
     steady_clock::time_point end_time_single_thread = steady_clock::now();
-    duration<double> elapsed_time_single_thread = duration_cast<duration<double>>(end_time_single_thread - start_time_single_thread);
+    auto elapsed_time_single_thread = std::chrono::duration_cast<std::chrono::milliseconds>(end_time_single_thread - start_time_single_thread);
 
-    cout << endl << "Total time using single thread: " << elapsed_time_single_thread.count() << " seconds" << endl << endl;
+    cout << endl << "Total time using single thread: " << elapsed_time_single_thread.count() << " milliseconds" << endl << endl;
   
 }
  //Checks each column/row if it contains all digits 1-9.
