@@ -54,9 +54,9 @@ const size_t N= 9;
 
     // Compute and return the elapsed time in milliseconds.
     steady_clock::time_point end_time_single_thread = steady_clock::now();
-    auto elapsed_time_single_thread = std::chrono::duration_cast<std::chrono::milliseconds>(end_time_single_thread - start_time_single_thread);
+    auto elapsed_time_single_thread = std::chrono::duration_cast<std::chrono::microseconds>(end_time_single_thread - start_time_single_thread);
 
-    cout << endl << "Total time using single thread: " << elapsed_time_single_thread.count() << " milliseconds" << endl << endl;
+    cout << endl << "Total time using single thread: " << elapsed_time_single_thread.count() << " microseconds" << endl << endl;
   
 }
  //Checks each column/row if it contains all digits 1-9.
