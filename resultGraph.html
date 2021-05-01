@@ -12,59 +12,79 @@
 		<!-- amCharts javascript code -->
 		<script type="text/javascript">
 			AmCharts.makeChart("chartdiv",
-				{
-					"type": "serial",
-					"categoryField": "category",
-					"startDuration": 1,
-					"categoryAxis": {
-						"gridPosition": "start"
-					},
-					"trendLines": [],
-					"graphs": [
-						{
-							"balloonText": "Time taken by [[category]]:[[value]]",
-                            "labelText": "[[value]]",
-							"fillAlphas": 1,
-							"fillColors": "#FF0000",
-							"fixedColumnWidth": 75,
-							"gapPeriod": 0,
-							"id": "AmGraph-1",
-							"lineColor": "#FF0000",
-							"title": "Program approach",
-							"type": "column",
-							"valueField": "column-1"
-						}
-					],
-					"guides": [],
-					"valueAxes": [
-						{
-							"id": "ValueAxis-1",
-							"title": "Execution time (in milliseconds)"
-						}
-					],
-					"allLabels": [],
-					"balloon": {},
-					"titles": [
-						{
-							"id": "Title-1",
-							"size": 15,
-							"text": "Performance chart"
-						}
-					],
-					"dataProvider": [
-						{
-							"category": "Single thread approach",
-							"column-1": "0.032669",
-							"column-2": 5
-						},
-						{
-							"category": "Multithread approach",
-							"column-1": "5.09841",
-							"column-2": 7
-						}
-					]
-				}
-			);
+            {
+                	"type": "serial",
+                	"categoryField": "category",
+                	"angle": 30,
+                	"depth3D": 30,
+                	"startDuration": 1,
+                	"processCount": 997,
+                	"categoryAxis": {
+                		"gridPosition": "start"
+                	},
+                	"trendLines": [],
+                	"graphs": [
+                		{
+                			"balloonText": "[[category]] for [[title]]:[[value]]",
+                			"fillAlphas": 1,
+                			"fillColors": "#FF8000",
+                			"fixedColumnWidth": 75,
+                			"gapPeriod": 0,
+                			"id": "AmGraph-1",
+                			"labelAnchor": "start",
+                			"labelOffset": 17,
+                			"labelText": "[[value]]",
+                			"lineColor": "#FF8000",
+                			"title": "valid input",
+                			"type": "column",
+                			"valueField": "column-1"
+                		},
+                		{
+                			"balloonText": " [[category]] for [[title]]:[[value]]",
+                			"fillAlphas": 1,
+                			"fillColors": "#9400D3",
+                			"fixedColumnWidth": 75,
+                			"gapPeriod": 0,
+                			"id": "AmGraph2",
+                			"labelAnchor": "start",
+                			"labelOffset": 17,
+                			"labelText": "[[value]]",
+                			"lineColor": "#9400D3",
+                			"title": "invalid input",
+                			"type": "column",
+                			"valueField": "column-2"
+                		}
+                	],
+                	"guides": [],
+                	"valueAxes": [
+                		{
+                			"id": "ValueAxis-1",
+                			"title": "Execution time (in microseconds)"
+                		}
+                	],
+                	"allLabels": [],
+                	"balloon": {},
+                	"titles": [
+                		{
+                			"id": "Title-1",
+                			"size": 15,
+                			"text": "Performance chart"
+                		}
+                	],
+                	"dataProvider": [
+                		{
+                			"category": "Single thread approach",
+                			"column-1": "14",
+                			"column-2": "9"
+                		},
+                		{
+                			"category": "Multithread approach",
+                			"column-1": "1698",
+                			"column-2": "2970"
+                		}
+                	]
+            }
+		);
 		</script>
 	</head>
 	<body>
